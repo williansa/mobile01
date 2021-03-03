@@ -9,11 +9,15 @@ const routes: Routes = [
     redirectTo: 'articles',
     pathMatch: 'full'
   },
-  
+
   // Rota para a página 'Artigos'
   {
     path: 'articles',
     loadChildren: () => import('./pages/articles/articles.module').then( m => m.ArticlesPageModule)
+  },
+  {
+    path: 'news',
+    loadChildren: () => import('./pages/news/news.module').then( m => m.NewsPageModule)
   },
   {
     path: 'contacts',
@@ -22,6 +26,17 @@ const routes: Routes = [
   {
     path: 'about',
     loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule)
+  },
+  {
+    path: 'view/:id',
+    loadChildren: () => import('./pages/view/view.module').then( m => m.ViewPageModule)
+  },
+
+  // Página de erro 404
+  // '**' TEM QUE SER SEMPRE A ÚLTIMA ROTA
+  {
+    path: '**',
+    loadChildren: () => import('./pages/e404/e404.module').then( m => m.E404PageModule)
   }
 ];
 
