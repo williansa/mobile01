@@ -1,17 +1,19 @@
 import { Component } from '@angular/core';
+
+// 1) Importa dependências
+import { AngularFireAuth } from '@angular/fire/auth'; 
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  public appPages = [
-    { title: 'inicio', url: '/folder/Inbox', icon: 'home' },
-    { title: 'Noticias', url: '/folder/Outbox', icon: 'newspaper' },
-    { title: 'Contatos', url: '/folder/Favorites', icon: 'heart' },
-    { title: 'Sobre', url: '/folder/Archived', icon: 'archive' },
-   
-  ];
-  
-  constructor() {}
+
+  constructor(
+
+    // 2) Injetar depedências
+    public auth: AngularFireAuth
+  ) {}
+
 }
